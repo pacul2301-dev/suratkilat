@@ -1,0 +1,21 @@
+{
+  "name": "SuratKilat — Persuratan & Arsip Digital",
+  "short_name": "SuratKilat",
+  "description": "Persuratan otomatis, persetujuan PIN, disposisi, dan arsip digital ber-QR.",
+  "start_url": "./#/dashboard",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#2563C9",
+  "theme_color": "#2563C9",
+  "lang": "id",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Buat Surat", "url": "./#/buat", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Persetujuan", "url": "./#/persetujuan", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

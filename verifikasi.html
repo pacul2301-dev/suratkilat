@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verifikasi Keaslian Surat — SuratKilat</title>
+<meta name="description" content="Periksa keaslian surat resmi melalui kode QR.">
+<meta name="theme-color" content="#2563C9">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" id="ms-font" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&display=block">
+<link rel="stylesheet" href="css/app.css?v=1.0.0">
+<style>
+  .vwrap { min-height: 100dvh; display: grid; place-items: start center; padding: 28px 14px; }
+  .vcard { width: min(520px, 100%); background: var(--surface); border-radius: 32px; padding: 30px 26px; box-shadow: var(--sh-app); display: grid; gap: 16px; text-align: center; }
+  .vic { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; margin: 4px auto 0; }
+  .vic .ms { font-size: 54px; }
+  .vic.ok { background: var(--ok-bg); color: var(--ok); } .vic.bad { background: var(--bad-bg); color: var(--bad); } .vic.wait { background: var(--subtle); color: var(--muted); }
+  .vcard h1 { margin: 0; font-size: 26px; letter-spacing: -.02em; }
+  .vtbl { text-align: left; background: var(--subtle); border-radius: 18px; padding: 14px 16px; display: grid; gap: 10px; }
+  .vtbl div { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+  .vtbl span { color: var(--muted); } .vtbl b { text-align: right; overflow-wrap: anywhere; }
+  .hashbox { border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 10px; }
+</style>
+</head>
+<body>
+<main class="vwrap">
+  <section class="vcard" aria-live="polite">
+    <div class="brand" style="justify-content:center;color:var(--primary-ink)"><div class="brand-logo" style="background:var(--primary);color:#fff"><span class="ms fill">bolt</span></div><span class="brand-name" style="color:var(--ink)">SuratKilat</span></div>
+    <div><div class="eyebrow">Verifikasi keaslian surat</div><div id="inst" style="font-weight:700;margin-top:4px">&nbsp;</div></div>
+    <div id="hasil"><div class="vic wait"><span class="ms">qr_code_scanner</span></div><p class="hint">Memeriksa kode…</p></div>
+    <form id="fKode" class="hashbox" hidden><label class="lbl" for="kode">Masukkan kode verifikasi (tertera di bawah QR)</label><div style="display:flex;gap:8px"><input class="input" id="kode" maxlength="40" autocomplete="off" spellcheck="false" placeholder="20 karakter"><button class="btn pri">Periksa</button></div></form>
+    <div class="hashbox" id="boxHash" hidden>
+      <b>Cocokkan berkas PDF</b>
+      <span class="hint">Unggah PDF yang Anda terima. Berkas tidak dikirim ke mana pun — sidik digital (SHA-256) dihitung di peramban ini lalu dibandingkan dengan arsip resmi.</span>
+      <div class="dropzone" id="dzHash"><span class="ms">upload_file</span><b>Pilih atau seret PDF ke sini</b></div>
+      <div id="hasilHash"></div>
+    </div>
+    <p class="hint" style="margin:0">Halaman ini hanya menampilkan nomor, tanggal, instansi penerbit, dan status keaslian. Isi surat tidak pernah ditampilkan.</p>
+  </section>
+</main>
+<script src="js/config.js?v=1.0.0"></script>
+<script src="js/verifikasi.js?v=1.0.0" defer></script>
+</body>
+</html>
